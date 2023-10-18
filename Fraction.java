@@ -5,7 +5,7 @@ public class Fraction {
 
   // Constants
   public static final Fraction ZERO = new Fraction(0, 1);
-  public static final Fraction UN = new Fraction(0, 1);
+  public static final Fraction UN = new Fraction(1, 1);
 
   // Constructeurs
   public Fraction (int numerateur) {
