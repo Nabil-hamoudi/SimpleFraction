@@ -27,4 +27,9 @@ public class Fraction {
   public int GetDenominateur () {
     return numerateur;
   }
+
+  @Override
+      public String toString() {
+        return "numerateur = %d, denominateur = %d", GetNumerateur(), GetDenominateur();
+    }
 }
