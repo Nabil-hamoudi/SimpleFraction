@@ -16,10 +16,10 @@ public class Main {
     // Assert Test conversion en nombre flottant
     double nombre1 = 2.0;
     double nombre2 = 7.0;
-    assert fractionNumerateurDenominateur.DoubleConversion() == nombre1 / nombre2 : "testGetdoublenumber échouer";
+    assert fractionNumerateurDenominateur.doubleValue() == nombre1 / nombre2 : "testGetdoublenumber échouer";
 
     // Assert Test addition fraction
-    Fraction fractionAddition = fractionNumerateur.Addition(fractionNumerateurDenominateur);
+    Fraction fractionAddition = fractionNumerateur.addition(fractionNumerateurDenominateur);
     assert fractionAddition.GetNumerateur() == 37 : "testAddition échouer";
     assert fractionAddition.GetDenominateur() == 7 : "testAddition échouer";
     
@@ -34,6 +34,11 @@ public class Main {
     assert fractionNumerateurDenominateur.compareTo(fractionzero) > 0 : "testCompare echouer";
     assert fractionNumerateurDenominateur.compareTo(fractionNumerateurDenominateur2) == 0 : "testCompare echouer";
     assert fractionNumerateurDenominateur.compareTo(fractionone) < 0 : "testCompare echouer";
+
+    // Verif Héritage
+    Number aNumber = java.math.BigDecimal.ONE;
+    Number anotherNumber = new Fraction(1, 2);
+    assert java.lang.Math.abs(aNumber.doubleValue() + anotherNumber.doubleValue() - 1.5) < 1E-8;
   }
 }
 

@@ -1,4 +1,4 @@
-public class Fraction {
+public class Fraction extends Number {
   // Declaration des attributs
   private int numerateur;
   private int denominateur;
@@ -17,8 +17,8 @@ public class Fraction {
     if (denominateur == 0) {
       throw new ArithmeticException("Division by zero is not allowed.");
     };
-    this.numerateur = numerateur;
-    this.denominateur = denominateur;
+    this.numerateur = numerateur % 128;
+    this.denominateur = denominateur % 128;
   }
 
   public Fraction () {
@@ -36,15 +36,39 @@ public class Fraction {
   }
 
   // methode
-  public double DoubleConversion () {
-    double numerateurdouble = numerateur;
-    double denominateurdouble = denominateur;
-    return numerateurdouble / denominateur;
+  public byte byteValue () {
+    throw new ArithmeticException("int conversion in byte cant work");
   }
 
-  public Fraction Addition (Fraction fraction2) {
-  int numerateur2 = fraction2.GetNumerateur();
-  int denominateur2 = fraction2.GetDenominateur();
+  public int intValue () {
+    return numerateur / denominateur;
+  }
+
+  public short shortValue () {
+    throw new ArithmeticException("int conversion in short cant work");
+  }
+
+  public long longValue () {
+    long numerateurlong = numerateur;
+    long denominateurlong = denominateur;
+    return numerateurlong / denominateurlong;
+  }
+
+  public double doubleValue () {
+    double numerateurdouble = numerateur;
+    double denominateurdouble = denominateur;
+    return numerateurdouble / denominateurdouble;
+  }
+
+  public float floatValue () {
+    float numerateurfloat = numerateur;
+    float denominateurfloat = denominateur;
+    return numerateurfloat / denominateurfloat;
+  }
+
+  public Fraction addition (Fraction fraction2) {
+    int numerateur2 = fraction2.GetNumerateur();
+    int denominateur2 = fraction2.GetDenominateur();
     return new Fraction((numerateur * denominateur2) + (numerateur2 * denominateur), denominateur * denominateur2);
   }
 
@@ -63,9 +87,9 @@ public class Fraction {
     };
     return false;
   }
-  
+
   public double compareTo (Fraction fraction2) {
-    return DoubleConversion() - fraction2.DoubleConversion();
+    return doubleValue() - fraction2.doubleValue();
   }
 
   // Get String with attributs
