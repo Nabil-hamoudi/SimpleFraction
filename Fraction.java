@@ -4,17 +4,17 @@ public class Fraction {
   private int denominateur;
 	
   // Constructeurs
-  public InitNumerateurOnly (int numerateur) {
+  public Fraction (int numerateur) {
     this.numerateur = numerateur;
     this.denominateur = 1;
   }
 
-  public InitNumerateurDenominateur (int numerateur, int denominateur) {
+  public Fraction (int numerateur, int denominateur) {
     this.numerateur = numerateur;
     this.denominateur = denominateur;
   }
 
-  public InitEmpty () {
+  public Fraction () {
     this.numerateur = 1;
     this.denominateur = 1;
   }
@@ -25,11 +25,12 @@ public class Fraction {
   }
  
   public int GetDenominateur () {
-    return numerateur;
+    return denominateur;
   }
-
+  
+  // Get String with attributs
   @Override
-      public String toString() {
-        return "numerateur = %d, denominateur = %d", GetNumerateur(), GetDenominateur();
-    }
+  public String toString() {
+    return String.format("numerateur = %d, denominateur = %d", GetNumerateur(), GetDenominateur());
+  }
 }
