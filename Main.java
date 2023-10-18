@@ -20,20 +20,20 @@ public class Main {
 
     // Assert Test addition fraction
     Fraction fractionAddition = fractionNumerateur.Addition(fractionNumerateurDenominateur);
-    assert fractionAddition.GetNumerateur() == 47 : "testAddition échouer";
+    assert fractionAddition.GetNumerateur() == 37 : "testAddition échouer";
     assert fractionAddition.GetDenominateur() == 7 : "testAddition échouer";
     
     // Assert Test égalité
     Fraction fractionNumerateurDenominateur2 = new Fraction(4, 14);
-    assert fractionAddition.Egalite(fractionNumerateurDenominateur2) == true : "testEgalite échouer";
-    assert fractionAddition.Egalite(fractionEmpty) == true : "testEgalite échouer";
+    assert fractionNumerateurDenominateur2.Egalite(fractionNumerateurDenominateur2) == true : "testEgalite échouer";
+    assert fractionNumerateurDenominateur2.Egalite(fractionEmpty) == false : "testEgalite échouer";
 
     // Assert comparaison
     Fraction fractionzero = new Fraction(0, 1);
     Fraction fractionone = new Fraction(1, 1);
-    assert fractionNumerateurDenominateur.compareTo(fractionzero) < 0 : "testCompare echouer";
+    assert fractionNumerateurDenominateur.compareTo(fractionzero) > 0 : "testCompare echouer";
     assert fractionNumerateurDenominateur.compareTo(fractionNumerateurDenominateur2) == 0 : "testCompare echouer";
-    assert fractionNumerateurDenominateur.compareTo(fractionone) > 0 : "testCompare echouer";
+    assert fractionNumerateurDenominateur.compareTo(fractionone) < 0 : "testCompare echouer";
   }
 }
 

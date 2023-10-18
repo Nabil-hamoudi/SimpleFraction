@@ -49,8 +49,17 @@ public class Fraction {
   }
 
   public boolean Egalite (Fraction fraction2) {
-    if (DoubleConversion() == fraction2.DoubleConversion()) {
-      return true;
+    if  (denominateur % fraction2.GetDenominateur() == 0) {
+      int multiple = fraction2.GetDenominateur() / denominateur;
+      if (numerateur == fraction2.GetNumerateur() * multiple) {
+        return true;
+      };
+    }
+    else if (fraction2.GetDenominateur() % denominateur == 0) {
+      int multiple = denominateur / fraction2.GetDenominateur();
+      if (numerateur * multiple == fraction2.GetNumerateur()) {
+        return true;
+      };
     };
     return false;
   }
