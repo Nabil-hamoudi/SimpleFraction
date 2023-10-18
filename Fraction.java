@@ -14,6 +14,9 @@ public class Fraction {
   }
 
   public Fraction (int numerateur, int denominateur) {
+    if (denominateur == 0) {
+      throw new ArithmeticException("Division by zero is not allowed.");
+    };
     this.numerateur = numerateur;
     this.denominateur = denominateur;
   }
@@ -31,7 +34,31 @@ public class Fraction {
   public int GetDenominateur () {
     return denominateur;
   }
+
+  // methode
+  public double DoubleConversion () {
+    double numerateurdouble = numerateur;
+    double denominateurdouble = denominateur;
+    return numerateurdouble / denominateur;
+  }
+
+  public Fraction Addition (Fraction fraction2) {
+  int numerateur2 = fraction2.GetNumerateur();
+  int denominateur2 = fraction2.GetDenominateur();
+    return new Fraction((numerateur * denominateur2) + (numerateur2 * denominateur), denominateur * denominateur2);
+  }
+
+  public boolean Egalite (Fraction fraction2) {
+    if (DoubleConversion() == fraction2.DoubleConversion()) {
+      return true;
+    };
+    return false;
+  }
   
+  public double compareTo (Fraction fraction2) {
+    return DoubleConversion() - fraction2.DoubleConversion();
+  }
+
   // Get String with attributs
   @Override
   public String toString() {
